@@ -1,6 +1,6 @@
 # Weather App and Music Portal
 
-This project was developed as part of the ALX Foundation phase's "Build your portfolio project". It is a web application that serves as a one-stop-shop for weather information, news, and music.
+This project was developed as part of the ALX Foundation phase's "Build your portfolio project". It is a web application that serves as a one-stop for weather information, news, and music.
 
 ## Features
 
@@ -70,3 +70,7 @@ This project is licensed under the MIT License.
 For any inquiries, please contact:
 - Email: hmidouchnouhaila2@gmail.com
 - GitHub: [Etsybt](https://github.com/Etsybt)
+
+## Web Application
+
+Web application deployed at: [https://etsybt.github.io/weather_app/](https://etsybt.github.io/weather_app/)
