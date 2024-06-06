@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoonShine</title>
+  <link rel="stylesheet" href="./static/main.css">
+  <link rel='icon' href="./static/images/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo"></a>
+    <nav class="navbar">
+      <a href="#class-container">Home</a>
+      <a href="#music">Music</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#loginModal" id="loginNavLink">Login</a>
+
+    </nav>
+  </header>
+  <div id="loginModal" class="modal">
+    <div class="modal-content" id="modal-content">
+      <div class="sign-up" id="signUpForm">
+        <h2>Sign Up</h2>
+        <div class="login-input">
+          <span class="icon"><img src="./static/images/user.png"></span>
+          <input type="text" id="signUpUsername" required>
+          <label>Username</label>
+        </div>
+        <div class="login-input">
+          <span class="icon"><img src="./static/images/email.png"></span>
+          <input type="email" id="signUpEmail" required>
+          <label>Email</label>
+        </div>
+        <div class="login-input">
+          <span class="icon"><img src="./static/images/password.png"></span>
+          <input type="password" id="signUpPassword" required>
+          <label>Password</label>
+        </div>
+        <div class="remember">
+          <label><input type="checkbox"> I agree to the terms and conditions</label>
+        </div>
+        <button type="submit" class="button" id="signUpButton">Sign Up</button>
+        <div class="login-signup">
+          <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+        </div>
+      </div>
+      <div class="login" id="loginForm">
+        <h2>Login</h2>
+        <div class="login-input">
+          <span class="icon"><img src="./static/images/email.png"></span>
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+        <div class="login-input">
+          <span class="icon"><img src="./static/images/password.png"></span>
+          <input type="password" id="signUpPassword" required>
+          <label>Password</label>
+        </div>
+        <div class="remember">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="button" id="loginButton">Login</button>
+        <div class="login-signup">
+          <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  <div id="class-container" class="card-container">
+    <div class="card">
+      <div class="search">
+        <div class="input-wrapper">
+          <img src="./static/images/placeholder.png" class="input-icon">
+          <input type="text" placeholder="enter city" spellcheck="false">
+        </div>
+        <button><img src="./static/images/search.png" alt="search"></button>
+      </div>
+      <div class="error">
+        <p>Invalid city name</p>
+      </div>
+      <div class="weather">
+        <img src="./static/images/rain.png" class="weather-icon">
+        <h1 class="temp">20 °C</h1>
+        <h2 class="city">New York</h2>
+        <h2 class="country">USA</h2>
+        <h3 class="time">5:08 Pm</h3>
+        <div class="date"></div>
+        <div class="details">
+          <div class="col">
+            <img src="./static/images/humidity.png">
+            <div>
+              <p class="humidity">50%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="./static/images/wind.png">
+            <div>
+              <p class="wind">17 km/h</p>
+              <p>Wind speed</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="./static/images/pressure.png">
+            <div>
+              <p class="pressure">1015 hPa</p>
+              <p>Pressure</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="./static/images/low-visibility.png">
+            <div>
+              <p class="visibility">20 km</p>
+              <p>Visibility</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="./static/images/sunrise.png">
+            <div>
+              <p class="sunrise">6 Am</p>
+              <p>Sunrise</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="./static/images/sunset.png">
+            <div>
+              <p class="sunset">7 Pm</p>
+              <p>sunset</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="five-days">
+      <h2 class="forecast-heading">5 Days Forecast</h2>
+      <div class="day">
+        <div class="day-container">
+          <div class="day-label">Monday</div>
+          <img src="./static/images/rain.png" class="day-icon">
+        </div>
+        <h1 class="temp">20 °C</h1>
+        <div class="humidity-container">
+          <img src="./static/images/humidity.png">
+          <h2 class="five-humidity">49 %</h2>
+        </div>
+        <h2 class="weather-description">cloudy</h2>
+      </div>
+      <div class="day">
+        <div class="day-label">Tuesday</div>
+        <img src="./static/images/rain.png" class="day-icon">
+        <h1 class="temp">20 °C</h1>
+        <div class="humidity-container">
+          <img src="./static/images/humidity.png">
+          <h2 class="five-humidity">49 %</h2>
+        </div>
+        <h2 class="weather-description">cloudy</h2>
+      </div>
+      <div class="day">
+        <div class="day-label">Wednesday</div>
+        <img src="./static/images/rain.png" class="day-icon">
+        <h1 class="temp">20 °C</h1>
+        <div class="humidity-container">
+          <img src="./static/images/humidity.png">
+          <h2 class="five-humidity">49 %</h2>
+        </div>
+        <h2 class="weather-description">cloudy</h2>
+      </div>
+      <div class="day">
+        <div class="day-label">Thursday</div>
+        <img src="./static/images/rain.png" class="day-icon">
+        <h1 class="temp">20 °C</h1>
+        <div class="humidity-container">
+          <img src="./static/images/humidity.png">
+          <h2 class="five-humidity">49 %</h2>
+        </div>
+        <h2 class="weather-description">cloudy</h2>
+      </div>
+      <div class="day">
+        <div class="day-label">Friday</div>
+        <img src="./static/images/rain.png" class="day-icon">
+        <h1 class="temp">20 °C</h1>
+        <div class="humidity-container">
+          <img src="./static/images/humidity.png">
+          <h2 class="humidity">49 %</h2>
+        </div>
+        <h2 class="weather-description">cloudy</h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="music" class="music-container">
+    <div class="music">
+      <h1> Today's weather conditions </h1>
+      <h2 id="current-temp"></h2>
+      <h2 id="current-sky"></h2>
+      <h3>here are some playlists to match up the weather vibes</h3>
+      <div class="playlists">
+        <div class="playlist-square">
+          <a href="#" class="playlist-link" data-playlist-id="playlist-id-1">
+            <img src="./playlist-thumbnail.jpg" alt="Playlist Thumbnail" class="playlist-thumbnail">
+            <h4 class="playlist-title">Playlist Title</h4>
+          </a>
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+        <div class="playlist-square">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section id="news" class="news-container">
+    <h2>Climate News</h2>
+    <div class="news-articles"></div>
+  </section>
+
+  <div id="about" class="about-container">
+    <div class="about-content">
+      <h1>A Weather-Driven Playlist Generator</h1>
+      <p>Welcome to my Weather-Driven Playlist Generator, a personalized music experience tailored to the current
+        weather conditions in your city. Whether it's sunny, rainy, or snowing, it generates the perfect playlist to
+        match your mood and the ambiance outside.</p>
+
+      <h2>The project</h2>
+      <p>This project's mission is to enhance your daily life by providing a seamless and delightful way to enjoy music
+        that resonates with your environment. I believe that music and weather are deeply connected, and this service
+        bridges this connection to bring you a harmonious experience.</p>
+      <h2>Get Started</h2>
+      <p>Simply enter your city and discover the joy of weather-inspired music today!</p>
+    </div>
+  </div>
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://github.com/Etsybt">
+          <i class="fab fa-github">
+            <p>GitHub</p>
+          </i>
+        </a>
+        <a href="mailto:hmidouchnouhaila2@gmail.com">
+          <i class="fas fa-envelope">
+            <p>Email</p>
+          </i>
+        </a>
+        <a href="https://x.com/etsyb98">
+          <i class="fab fa-twitter">
+            <p>X</p>
+          </i>
+        </a>
+      </div>
+      <p class="footer-text">
+        Contact me for more!
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/weather.js"></script>
+  <script type="module" src="./js/spotify.js"></script>
+  <script src="./js/news.js"></script>
+
+</body>
+
+</html>
