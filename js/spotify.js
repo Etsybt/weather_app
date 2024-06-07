@@ -1,7 +1,8 @@
+// Define Spotify client credentials
 const spotifyClientId = 'be3a400cddb34042a263f47b499bdc4c';
 const spotifyClientSecret = 'ad428ce3210542e89a3249e0ea3f18f4';
 
-
+// Function to get Spotify access token
 async function getSpotifyAccessToken() {
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
@@ -16,6 +17,7 @@ async function getSpotifyAccessToken() {
   return data.access_token;
 }
 
+// Function to fetch Spotify playlists based on weather condition
 async function fetchSpotifyPlaylists(weatherCondition) {
   const token = await getSpotifyAccessToken();
   const response = await fetch(`https://api.spotify.com/v1/search?q=${weatherCondition}&type=playlist`, {
@@ -28,6 +30,7 @@ async function fetchSpotifyPlaylists(weatherCondition) {
   return data.playlists.items;
 }
 
+// Function to shuffle an array (Fisher-Yates shuffle algorithm)
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -36,6 +39,7 @@ function shuffleArray(array) {
     return array;
   }
 
+// Function to display playlists on the webpage
 async function displayPlaylists(weatherCondition) {
   try {
     const playlists = await fetchSpotifyPlaylists(weatherCondition);

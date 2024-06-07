@@ -1,6 +1,8 @@
+// API key for accessing the Guardian API
 const apiKey = '95850547-dcc7-480d-8b48-1d1ab98d3820';
 const newsContainer = document.querySelector('.news-articles');
 
+// Function to fetch news articles from the Guardian API
 async function fetchNews() {
   try {
     const response = await fetch(`https://content.guardianapis.com/search?q=climat&api-key=${apiKey}&show-fields=thumbnail,headline,trailText,short-url`);
@@ -11,6 +13,7 @@ async function fetchNews() {
   }
 }
 
+// Function to display the fetched news articles in the news container
 function displayNews(articles) {
   newsContainer.innerHTML = '';
   articles.forEach(article => {

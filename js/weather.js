@@ -1,16 +1,22 @@
+// Import the displayPlaylists function from spotify.js
 import { displayPlaylists } from './spotify.js';
 
+// Get modal elements
 var modal = document.getElementById("loginModal");
 var outside = document.getElementById("modal-content");
 
+// Get the login link element
 var loginLink = document.querySelector(".navbar a[href='#loginModal']");
 
+// Get form elements
 var loginForm = document.getElementById("loginForm");
 var signUpForm = document.getElementById("signUpForm");
 
+// Get the register and login link elements inside the modal
 var registerLink = modal.querySelector(".register-link");
 var modalLoginLink = modal.querySelector(".login-link");
 
+// Function to toggle the modal display
 function toggleModal() {
   if (modal.style.display === "block") {
     modal.style.display = "none";
@@ -23,12 +29,14 @@ function toggleModal() {
 
 loginLink.onclick = toggleModal;
 
+// Show sign-up form and hide login form when register link is clicked
 registerLink.onclick = function(event) {
   event.preventDefault();
   loginForm.style.display = "none";
   signUpForm.style.display = "block";
 }
 
+// Show login form and hide sign-up form when login link in the modal is clicked
 modalLoginLink.onclick = function(event) {
   event.preventDefault();
   loginForm.style.display = "block";
@@ -52,6 +60,7 @@ const forecastApiURL = "https://api.openweathermap.org/data/2.5/forecast?units=m
 const searchInput = document.querySelector(".search input");
 const searchButton = document.querySelector(".search button");
 
+// Function to format time based on timestamp and timezone
 function formatTime(timestamp, timezone) {
   const date = new Date((timestamp + timezone) * 1000);
   let hours = date.getUTCHours();
@@ -63,12 +72,14 @@ function formatTime(timestamp, timezone) {
   return `${formattedHours}:${formattedMinutes} ${ampm}`;
 }
 
-
+// Function to get the current date based on timezone
 function getCurrentDate(timezone) {
   const currentDate = new Date((new Date().getTime()) + (timezone * 1000));
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   return currentDate.toLocaleDateString('en-US', options);
 }
+
+// Function to update temperature display
 async function updateTemperatureDisplay(city) {
   try {
     const response = await fetch(`${currentWeatherApiURL}${city}&appid=${apiKey}`);
@@ -79,6 +90,8 @@ async function updateTemperatureDisplay(city) {
     document.getElementById('current-temp').textContent = 'N/A';
   }
 }
+
+// Function to update sky display
 async function updateSkyDiplay(city) {
   try {
     const response = await fetch(`${currentWeatherApiURL}${city}&appid=${apiKey}`);
@@ -90,6 +103,7 @@ async function updateSkyDiplay(city) {
   }
 }
 
+// Function to check the weather for a city
 async function check_weather(city) {
   try {
     console.log("Checking weather for city:", city);
@@ -117,7 +131,6 @@ async function check_weather(city) {
       document.querySelector(".pressure").innerHTML = `${data.main.pressure} hPa`;
       document.querySelector(".visibility").innerHTML = `${(data.visibility / 1000).toFixed(2)} km`;
 
-      
       
       const sunriseTime = formatTime(data.sys.sunrise, data.timezone);
       const sunsetTime = formatTime(data.sys.sunset, data.timezone);
@@ -150,6 +163,7 @@ async function check_weather(city) {
   }
 }
 
+// Function to set weather icon based on weather condition and time of day
 function setWeatherIcon(element, weatherMain, isDayTime) {
   const weatherIcons = {
     "Clouds": isDayTime ? "few_clouds" : "night_clouds",
@@ -171,6 +185,7 @@ function setWeatherIcon(element, weatherMain, isDayTime) {
   element.src = `../static/images/${weatherIcons[weatherMain] || (isDayTime ? "clear" : "night_clear")}.png`;
 }
 
+// Function to check if the current time is during the day or night
 function checkDayTime(currentTime, sunrise, sunset, timezone) {
   const currentLocalTime = (currentTime + timezone) % 86400; // seconds in a day
   const sunriseLocalTime = (sunrise + timezone) % 86400;
@@ -179,6 +194,7 @@ function checkDayTime(currentTime, sunrise, sunset, timezone) {
   return currentLocalTime >= sunriseLocalTime && currentLocalTime < sunsetLocalTime;
 }
 
+// Function to display a 5-day weather forecast
 async function displayFiveDayForecast(city, sunrise, sunset, timezone) {
   try {
     const response = await fetch(`${forecastApiURL}${city}&appid=${apiKey}`);
@@ -237,6 +253,7 @@ async function displayFiveDayForecast(city, sunrise, sunset, timezone) {
   }
 }
 
+//function to display the week days
 function getDayOfWeek(date) {
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   return daysOfWeek[date.getDay()];
